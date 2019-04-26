@@ -5,6 +5,10 @@
 https://github.com/cjy8709/Choi_etal_O.glaberrima_PopGenome/blob/master/FromFASTQ_to_VCF.sh
 
 ## Slurm scripts associated with ANGSD analysis
+### Misc. commands
+#### Select random SNP positions
+random_site_select.slurm
+
 ### Admxiture analysis
 #### Calculate GL
 NGS_GL_NGSadmix.slurm
