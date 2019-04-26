@@ -5,17 +5,26 @@
 https://github.com/cjy8709/Choi_etal_O.glaberrima_PopGenome/blob/master/FromFASTQ_to_VCF.sh
 
 ## Slurm scripts associated with ANGSD analysis
-### admxiture analysis
-#### calculate GL
+### Admxiture analysis
+#### Calculate GL
 NGS_GL_NGSadmix.slurm
 
-#### admixture analysis
+#### NGSadmix
 NGS_admix.slurm
 
-### phylogeny and distance
-#### calculate Genotype Posterior Probability
+### Phylogeny and distance
+#### Calculate Genotype Posterior Probability
 NGS_GPP_DIST.slurm
 
-#### calculate genetic distance and create NJ tree
+#### Calculate genetic distance and create NJ tree
 NGS_dist.slurm
 
+### PCA
+
+
+### SFS estimation for dadi
+#### 1D SFS for single popl
+NGS_SFS.slurm
+
+#### 2D SFS for two popl
+NGS_2D-SFS.slurm
