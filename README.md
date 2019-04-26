@@ -32,3 +32,6 @@ NGS_SFS.slurm
 
 #### 2D SFS for two popl
 NGS_2D-SFS.slurm
+
+#### bootstrap SFS
+bootstrap_SFS.slurm
