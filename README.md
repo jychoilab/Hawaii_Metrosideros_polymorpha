@@ -20,7 +20,11 @@ NGS_GPP_DIST.slurm
 NGS_dist.slurm
 
 ### PCA
+#### Calculate Genotype Posterior Probability
+NGS_GPP_PCA.slurm
 
+#### PCA with ANGSD
+NGS_covar.slurm
 
 ### SFS estimation for dadi
 #### 1D SFS for single popl
