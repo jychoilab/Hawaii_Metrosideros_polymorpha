@@ -9,6 +9,7 @@
 ### set up parameters
 
 BAMLIST=/scratch/jyc387/Metrosideros_Project/ANALYSIS/ANGSD/bam.AllN.list
+# refgenome
 REF=/scratch/jyc387/Metrosideros_Project/REFGENOME/Izuno_etal_2016/GCA_001662345.1_Mpo_1.0_genomic.scaffold_name_change.ge10kbp.fna
 OUTNAME="AllN"
 
@@ -19,23 +20,6 @@ RFLIST=/scratch/jyc387/Metrosideros_Project/ANALYSIS/ANGSD/LIST/CHRLIST
 # what parameter to use for ANGSD
 minMapQ=30
 minQ=30
-
-# 75% of individuals
-#minInd=30
-
-# min = 1/3 and max = X3 of mean depth
-#setMinDepth=270
-#setMaxDepth=2434
-
-#AlakaiG
-#minInd=6; setMinDepth=58; setMaxDepth=523
-# N
-#minInd=10; setMinDepth=103; setMaxDepth=924
-# G2
-#minInd=3; setMinDepth=23; setMaxDepth=207
-# All G
-#minInd=15; setMinDepth=128; setMaxDepth=1158
-# All N
 minInd=15; setMinDepth=135; setMaxDepth=1218
 
 ###
