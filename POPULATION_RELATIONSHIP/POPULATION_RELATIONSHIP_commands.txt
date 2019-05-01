@@ -1,0 +1,27 @@
+### TREEMIX
+# Random bp thinning to remove SNPs that are within 10kbp of each other
+plink2 -file combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8 --bp-space 10000 --allow-extra-chr --recode --out combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin
+
+# get freq file from plink
+plink2 --file combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin --freq --within treemix_frq.list --allow-extra-chr --out combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin
+
+# gzip the freq file as its required for the treemix conversion script
+gzip combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin.frq.strat
+
+# convert to treemix input format
+python /storage/jae.youngchoi/PROGRAMS_AND_SCRIPTS/PROGRAMS/TREEMIX/plink2treemix.py combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin.frq.strat.gz combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin.treemix.gz
+
+# remove invariant SNP positions (if any of the population had no SNP i.e. 0,0 then ignore that SNP)
+while read -r LINE; do COUNT=$(grep -o "0,0" <<< "$LINE" | wc -l); if [[ $COUNT -eq 0 ]]; then echo "$LINE"; fi;done < <(zcat combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin.treemix.gz) | gzip > combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin.removeInVariant.treemix.gz
+
+
+## treemix analysis
+# zero migration
+/storage/jae.youngchoi/PROGRAMS_AND_SCRIPTS/PROGRAMS/TREEMIX/treemix-1.13/src/treemix -i combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin.removeInVariant.treemix.gz -root OUT -o M0
+
+# m1
+/storage/jae.youngchoi/PROGRAMS_AND_SCRIPTS/PROGRAMS/TREEMIX/treemix-1.13/src/treemix -i combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin.removeInVariant.treemix.gz -root OUT -m 1 -o M1
+
+# f4 test. Output is in order populations used to calculate the f4 statistic, the f4 statistic, the standard error in the f4 statistic,and the Z-score
+/storage/jae.youngchoi/PROGRAMS_AND_SCRIPTS/PROGRAMS/TREEMIX/treemix-1.13/src/fourpop -i combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.10kbpThin.removeInVariant.treemix.gz > f4_out.txt
+
