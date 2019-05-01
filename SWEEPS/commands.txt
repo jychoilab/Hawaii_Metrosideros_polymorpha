@@ -6,6 +6,8 @@ vcftools --vcf combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.recode.vcf --keep
 OmegaPlus.slurm
 
 ###### H12
+cd /storage/jae.youngchoi/WORK_PROJECTS/Metrosideros_Project/ANALYSIS/PopSample/HARDCALL_GT/SWEEPS/H12/popN
+
 # convert vcf to tped format for a specific pop
 plink2 --vcf combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.impute_phased.vcf.gz --keep newellii.list --allow-extra-chr --set-missing-var-ids @:# --recode --transpose --out COREPOP.combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.popN
 
