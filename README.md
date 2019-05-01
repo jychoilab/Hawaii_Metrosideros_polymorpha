@@ -8,6 +8,10 @@ https://github.com/cjy8709/Choi_etal_O.glaberrima_PopGenome/blob/master/FromFAST
 ### Slurm scripts associated with ANGSD analysis
 ANGSD/ANGSD_commands.txt
 
+## Analysis involving examining the population relationships
+### Commands and scripts
+POPULATION_RELATIONSHIP/POPULATION_RELATIONSHIP_commands.txt
+
 ## Sweep analysis
 ### Commands and scripts used for Omegaplus, H12, and Hscan statsitics calculation 
 SWEEPS/SWEEP_commands.txt
