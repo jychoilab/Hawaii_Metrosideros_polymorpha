@@ -1,0 +1,34 @@
+### Misc. commands
+# Select random SNP positions
+random_site_select.slurm
+
+### Admxiture analysis
+# Calculate GL
+NGS_GL_NGSadmix.slurm
+
+# NGSadmix
+NGS_admix.slurm
+
+### Phylogeny and distance
+# Calculate Genotype Posterior Probability
+NGS_GPP_DIST.slurm
+
+# Calculate genetic distance and create NJ tree
+NGS_dist.slurm
+
+### PCA
+# Calculate Genotype Posterior Probability
+NGS_GPP_PCA.slurm
+
+# PCA with ANGSD
+NGS_covar.slurm
+
+### SFS estimation for dadi
+# 1D SFS for single popl
+NGS_SFS.slurm
+
+# 2D SFS for two popl
+NGS_2D-SFS.slurm
+
+# bootstrap SFS
+bootstrap_SFS.slurm
