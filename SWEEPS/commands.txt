@@ -1,0 +1,37 @@
+###### OmegaPlus commands
+# get VCF for one popl and remove monomorphic and non-biallelic sites
+vcftools --vcf combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.recode.vcf --keep newellii.list --non-ref-ac-any 1 --min-alleles 2 --max-alleles 2 --recode --out COREPOP.combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.Npop
+
+# Omegaplus estiamte for each scaffold independently since each scaffold needs a different grid size
+/home/jyc387/PROGRAMS_AND_SCRIPTS/PROJECTS/Metrosideros/OmegaPlus.slurm
+
+# match omega plus windows from two popl
+/storage/jae.youngchoi/PROGRAMS_AND_SCRIPTS/PROJECTS/Metrosideros_Project/merge_omegaplus.sh
+
+#script to match ANGSD PBS windows with Omegaplus windows
+/storage/jae.youngchoi/PROGRAMS_AND_SCRIPTS/PROJECTS/Metrosideros_Project/PBS_OmegaPlus_match.sh
+
+
+###### H12
+# convert vcf to tped format for a specific pop
+plink2 --vcf /storage/jae.youngchoi/WORK_PROJECTS/Metrosideros_Project/VARIANTS/PopSample/COREPOP/FILTERED/combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.impute_phased.vcf.gz --keep /storage/jae.youngchoi/WORK_PROJECTS/Metrosideros_Project/ANALYSIS/PopSample/HARDCALL_GT/LD/POP/N.list --allow-extra-chr --set-missing-var-ids @:# --recode --transpose --out COREPOP.combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.impute_phased.popN
+
+# H12 test
+/storage/jae.youngchoi/PROGRAMS_AND_SCRIPTS/PROJECTS/Metrosideros_Project/H12_analyzer.sh
+
+# concat results
+for FOLDER in *; do if [[ $(wc -l < "$FOLDER"/popN."$FOLDER".window100_jump10.H12_output.txt) -gt 0 ]]; then paste <(printf "$FOLDER\n%.0s" $(seq 1 $(wc -l < "$FOLDER"/popN."$FOLDER".window100_jump10.H12_output.txt))) <(cat "$FOLDER"/popN."$FOLDER".window100_jump10.H12_output.txt); fi; done > popN.window100_jump10.H12_output.txt
+
+
+####### Hscan
+# use H12 input but change it a bit to make it work with Hscan
+H12OUT=/storage/jae.youngchoi/WORK_PROJECTS/Metrosideros_Project/ANALYSIS/PopSample/HARDCALL_GT/SWEEPS/H12/popN
+POP=$(basename "$H12OUT")
+for FOLDER in "$H12OUT"/*; do
+        if [[ -d "$FOLDER" ]]; then
+                SCAF=$(basename "$FOLDER")
+                cd "$FOLDER"
+                perl -pe 's/,0/,./g' "$POP"."$SCAF".H12_input.txt > "$POP"."$SCAF".Hscan_input.txt
+                /storage/jae.youngchoi/PROGRAMS_AND_SCRIPTS/PROGRAMS/H_SCAN/H-scan -i "$POP"."$SCAF".Hscan_input.txt > "$POP"."$SCAF".Hscan_output.txt
+        fi
+done
