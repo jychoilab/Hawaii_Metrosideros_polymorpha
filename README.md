@@ -7,40 +7,40 @@ https://github.com/cjy8709/Choi_etal_O.glaberrima_PopGenome/blob/master/FromFAST
 ## Slurm scripts associated with ANGSD analysis
 ### Misc. commands
 #### Select random SNP positions
-random_site_select.slurm
+ANGSD/random_site_select.slurm
 
 ### Admxiture analysis
 #### Calculate GL
-NGS_GL_NGSadmix.slurm
+ANGSD/NGS_GL_NGSadmix.slurm
 
 #### NGSadmix
-NGS_admix.slurm
+ANGSD/NGS_admix.slurm
 
 ### Phylogeny and distance
 #### Calculate Genotype Posterior Probability
-NGS_GPP_DIST.slurm
+ANGSD/NGS_GPP_DIST.slurm
 
 #### Calculate genetic distance and create NJ tree
-NGS_dist.slurm
+ANGSD/NGS_dist.slurm
 
 ### PCA
 #### Calculate Genotype Posterior Probability
-NGS_GPP_PCA.slurm
+ANGSD/NGS_GPP_PCA.slurm
 
 #### PCA with ANGSD
-NGS_covar.slurm
+ANGSD/NGS_covar.slurm
 
 ### SFS estimation for dadi
 #### 1D SFS for single popl
-NGS_SFS.slurm
+ANGSD/NGS_SFS.slurm
 
 #### 2D SFS for two popl
-NGS_2D-SFS.slurm
+ANGSD/NGS_2D-SFS.slurm
 
 #### bootstrap SFS
-bootstrap_SFS.slurm
+ANGSD/bootstrap_SFS.slurm
 
 
 ## Sweep analysis
-### commands and scripts used for Omegaplus, H12, and Hscan statsitics calculation 
+### Commands and scripts used for Omegaplus, H12, and Hscan statsitics calculation 
 SWEEPS/SWEEP_commands.txt
