@@ -5,7 +5,7 @@
 https://github.com/cjy8709/Choi_etal_O.glaberrima_PopGenome/blob/master/FromFASTQ_to_VCF.sh
 
 ## ANGSD analysis
-###Slurm scripts associated with ANGSD analysis
+### Slurm scripts associated with ANGSD analysis
 ANGSD/ANGSD_commands.txt
 
 ## Sweep analysis
