@@ -39,3 +39,8 @@ NGS_2D-SFS.slurm
 
 #### bootstrap SFS
 bootstrap_SFS.slurm
+
+
+## Sweep analysis
+### commands and scripts used for Omegaplus, H12, and Hscan statsitics calculation 
+SWEEPS/SWEEP_commands.txt
