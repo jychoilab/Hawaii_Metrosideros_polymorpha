@@ -9,7 +9,7 @@ https://github.com/cjy8709/Choi_etal_O.glaberrima_PopGenome/blob/master/FromFAST
 ANGSD/ANGSD_commands.txt
 
 ## Analysis involving examining the population relationships
-### Commands and scripts
+### Commands and scripts used for Treemix, f4 test, and Twisst analysis
 POPULATION_RELATIONSHIP/POPULATION_RELATIONSHIP_commands.txt
 
 ## Sweep analysis
