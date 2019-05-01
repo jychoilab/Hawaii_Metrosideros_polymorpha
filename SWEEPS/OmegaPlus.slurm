@@ -8,12 +8,10 @@
 ####
 
 # input VCF
-#VCF=COREPOP.combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.Npop.recode.vcf
-VCF=combined.ALLCHR.SNP.FILTERED.PASS.maxmissing0.8.maf0.05.noMonoMorphic.onlyBiallelic.hetMaf0.05.vcf
+VCF=COREPOP.combined.ALLCHR.SNP.FILTERED.PASS.MaxMissing0.8.Npop.recode.vcf
 
 # scaffold list (two column list where col1 is scaffold name and col2 is size of scaffold)
-#SCAFFOLD=/scratch/jyc387/Metrosideros_Project/ANALYSIS/SWEEPS/scaffold.list
-SCAFFOLD=/scratch/jyc387/RICE_GENOME_ASSEMBLY/ANALYSIS/POPGEN/OMEGAPLUS/Basmati.as_reference_query_to_NPB.fa.fai
+SCAFFOLD=/scratch/jyc387/Metrosideros_Project/ANALYSIS/SWEEPS/scaffold.list
 
 # grid corresponds to number of windows to calculate OmegaPlus stats. When you have multiple scaffolds then number of grids should correpsond to the physical bps a grid should contain. $GRID_BP represents the physical grid size in bp and the script will divide that by the chr/scaffold size to determine the total number of grids that would be needed.
 GRID_BP=5000
@@ -43,7 +41,5 @@ while read -r LINE; do
 	rm "$C"*
 
 done < <(cat "$SCAFFOLD")
-
-#/home/jyc387/PROGRAMS_AND_SCRIPTS/PROGRAMS/omegaplus/OmegaPlus-M -name N.grid60k.minwin5k.maxwin100k.NoSingleton -input combined.ALLCHR.SNP.FILTERED.PASS.exclude_H196.MaxMissing0.8.Npop.recode.vcf -grid 60000 -minwin 5000 -maxwin 100000 -no-singletons -seed "$RANDOM" -threads 20
 
 
